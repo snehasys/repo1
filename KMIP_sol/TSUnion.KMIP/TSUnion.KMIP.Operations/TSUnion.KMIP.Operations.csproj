@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{513C99B5-571F-4140-ABAC-2A790087FD95}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TSUnion.KMIP.Operations</RootNamespace>
+    <AssemblyName>TSUnion.KMIP.Operations</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>%24/kmip/TSUnion.KMIP/TSUnion.KMIP.Operations</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>https://tfs.codeplex.com/tfs/tfs17</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\External\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OperationManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OperationManager%28Register%29.cs" />
+    <Compile Include="OperationManager%28ReKey%29.cs" />
+    <Compile Include="OperationManager%28Main%29.cs" />
+    <Compile Include="OperationManager%28ReKeyPair%29.cs" />
+    <Compile Include="OperationManager%28DeriveKey%29.cs" />
+    <Compile Include="OperationManager%28Certify%29.cs" />
+    <Compile Include="OperationManager%28ReCertify%29.cs" />
+    <Compile Include="OperationManager%28Locate%29.cs" />
+    <Compile Include="OperationManager%28Check%29.cs" />
+    <Compile Include="OperationManager%28Get%29.cs" />
+    <Compile Include="OperationManager%28GetAttributes%29.cs" />
+    <Compile Include="OperationManager%28GetAttributeList%29.cs" />
+    <Compile Include="OperationManager%28AddAttribute%29.cs" />
+    <Compile Include="OperationManager%28ModifyAttribute%29.cs" />
+    <Compile Include="OperationManager%28DeleteAttribute%29.cs" />
+    <Compile Include="OperationManager%28ObtainLease%29.cs" />
+    <Compile Include="OperationManager%28GetUsageAllocation%29.cs" />
+    <Compile Include="OperationManager%28Activate%29.cs" />
+    <Compile Include="OperationManager%28Revoke%29.cs" />
+    <Compile Include="OperationManager%28Destroy%29.cs" />
+    <Compile Include="OperationManager%28Archive%29.cs" />
+    <Compile Include="OperationManager%28Recover%29.cs" />
+    <Compile Include="OperationManager%28Validate%29.cs" />
+    <Compile Include="OperationManager%28Query%29.cs" />
+    <Compile Include="OperationManager%28Cancel%29.cs" />
+    <Compile Include="OperationManager%28Poll%29.cs" />
+    <Compile Include="OperationManager%28Create%29.cs" />
+    <Compile Include="OperationManager%28DeleteAll%29.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TSUnion.KMIP.Communication\TSUnion.KMIP.Communication.csproj">
+      <Project>{ecb42cf5-049f-4406-88f5-9a7d3ca1ac81}</Project>
+      <Name>TSUnion.KMIP.Communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSUnion.KMIP.Core\TSUnion.KMIP.Core.csproj">
+      <Project>{a38fb316-d101-4bfa-8dbf-773f2391d917}</Project>
+      <Name>TSUnion.KMIP.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSUnion.KMIP.cryptography\TSUnion.KMIP.Cryptography.csproj">
+      <Project>{dd17a57a-c58c-4db5-b0b5-560736e7d9da}</Project>
+      <Name>TSUnion.KMIP.Cryptography</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSUnion.KMIP.DAO.MSSql\TSUnion.KMIP.DAO.csproj">
+      <Project>{e3560c7c-ccaf-4bc6-a4f0-20b125ffdd16}</Project>
+      <Name>TSUnion.KMIP.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSUnion.KMIP.Server.Base\TSUnion.KMIP.Server.Base.csproj">
+      <Project>{b0516f02-0b2b-4d7b-873d-c5aef5f4adfb}</Project>
+      <Name>TSUnion.KMIP.Server.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

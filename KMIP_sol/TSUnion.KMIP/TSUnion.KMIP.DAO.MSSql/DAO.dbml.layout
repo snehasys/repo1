@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DAO">
+  <DataContextMoniker Name="/DAODataContext" />
+  <nestedChildShapes>
+    <classShape Id="484a712a-0203-4642-a96a-c99fa75daf1d" absoluteBounds="1.875, 0.5, 2, 1.8592858886718751">
+      <DataClassMoniker Name="/DAODataContext/KMIP_OBJECT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fea39335-bfae-442e-a447-093b408ea2eb" absoluteBounds="1.8900000000000001, 0.96, 1.9700000000000002, 1.299285888671875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="64b44d68-d3ba-4a35-924d-ebae3c902008" absoluteBounds="0.875, 2.875, 2, 1.5023929850260416">
+      <DataClassMoniker Name="/DAODataContext/KMIP_OBJECT_ARCHIVE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5c3c90db-7254-402f-bcbb-acc4f22007a8" absoluteBounds="0.89, 3.335, 1.9700000000000002, 0.94239298502604174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
