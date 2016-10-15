@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <appSettings>
+    <add key="TSUnion.KMIP.Communication.ConnectionDetails.Port" value="13333"	/>
+    <add key="TSUnion.KMIP.Communication.ConnectionDetails.Address" value="127.0.0.1"	/>
+    <add key="TSUnion.KMIP.Communication.ConnectionDetails.BufferSize" value="65536"	/>
+    <add key="TSUnion.KMIP.Communication.ConnectionDetails.ProtocolType" value="Simple"	/>
+    <add key="TSUnion.KMIP.Communication.ConnectionDetails.CertificatePath" value="C:\p4wrkspace\TSUnion.KMIP\TSUnion.KMIP.Server.WindowService\bin\Debug\kmip.cer"	/>
+    <add key="TSUnion.KMIP.Communication.ConnectionDetails.CertificateName" value="KMIP"	/>
+    <add key="TSUnion.KMIP.Communication.ConnectionDetails.MQQueueName" value="queue://KMIP.COM"	/>
+    <add key="TSUnion.KMIP.Communication.ConnectionDetails.MQConnectionDetails" value="tcp://localhost:61616"	/>
+  </appSettings>
+</Configuration>
