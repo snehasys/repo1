@@ -1,8 +1,8 @@
 This project(KMIP_sol) is an extention of an unstable release found at https://kmip.codeplex.com/ .
-A basic C# solution for the KMIP 1.0 specification protocol. 
+A very basic C# solution for the KMIP 1.0 specification protocol. 
 It is distributed under GPLv3 license. 
 
-This C# solution contains the core API’s for KMIP protocol, a KMS-Server and a test client.
+This solution contains the core API’s for KMIP protocol, a KMS-Server and a test client.
 ---------------------------------------------------------------------
 
 Overridden the Base Objects to suite the specs of KMIP KeyBlock as depicted in 
@@ -19,32 +19,40 @@ ___________________________________________________________________________
 
 To make a C# project APIs callable from a C++ project we need to expose the desired APIs via COM interop objects. (The Component Object Model (COM) allows an object to expose its functionality to other components and to host applications.)
 To successfully call a C# method inside a C++ project do the following:
-(1)	First expose the public methods inside public interfaces from the c# project. 
-(2)	Now build the C# dll successfully. 
-(3)	Goto the project’s AssemblyInfo.cs file and add the line
- [assembly: ComVisible(true)]
-(4)	If want to create strong name for your class library go to step (a). 
-Otherwise, jump to step (5).
-     (a)	To create a strong name for your class library, type the following command at the Visual Studio .NET command prompt:
-        	 sn.exe -k MyKeyFile.SNK
 
-     (b)	Copy the file MyKeyFile.SNK to your C# project folder.
-     (c)	Add/replace these lines of code in the AssemblyInfo.cs file
-[assembly: ComVisible(false)]
-[assembly: AssemblyDelaySign(false)]
-[assembly: AssemblyKeyFile("")]
-with the following:
-		[assembly: ComVisible(true)] 
-		[assembly: AssemblyDelaySign(false)] 
-		[assembly: AssemblyKeyFile("..\\..\\MyKeyFile.SNK")]
-     (d)	Go to step (5).
+	(1)	First expose the public methods inside public interfaces from the c# project. 
 
-(5)	Rebuild the c# library. (suppose the generated dll name is cSharp.dll)
-(6)	After creating the C# dll, we need the register assembly utility. For that, run the following command from admin console:
+	(2)	Now build the C# dll successfully. 
+
+	(3)	Goto the project’s AssemblyInfo.cs file and add the line
+		 [assembly: ComVisible(true)]
+ 
+	(4)	If want to create strong name for your class library go to step (a). 
+		Otherwise, jump to step (5).
+
+	     (a)	To create a strong name for your class library, type the following command at the Visual Studio .NET command prompt:
+        		 sn.exe -k MyKeyFile.SNK
+
+	     (b)	Copy the file MyKeyFile.SNK to your C# project folder.
+     
+	     (c)	Add/replace these lines of code in the AssemblyInfo.cs file
+				[assembly: ComVisible(false)]
+				[assembly: AssemblyDelaySign(false)]
+				[assembly: AssemblyKeyFile("")]
+			with the following:
+				[assembly: ComVisible(true)] 
+				[assembly: AssemblyDelaySign(false)] 
+				[assembly: AssemblyKeyFile("..\\..\\MyKeyFile.SNK")]
+	     (d)	Go to step (5).
+
+	(5)	Rebuild the c# library. (suppose the generated dll name is cSharp.dll)
+
+	(6)	After creating the C# dll, we need the register assembly utility. For that, run the following command from admin console:
          	C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe cSharp.dll  /tlb:cSharp.tlb  /codebase
 
-(7)	Then we import the generated TLB file path (cSharp.tlb) in our C++ project.
-(8)	Now we can use the defined namespaces of C# module. Also we can access the public methods of C# module via interface pointers in C++ code.
+	(7)	Then we import the generated TLB file path (cSharp.tlb) in our C++ project.
+
+	(8)	Now we can use the defined namespaces of C# module. Also we can access the public methods of C# module via interface pointers in C++ code.
 
 _____________________________________________________________________________________________________________________
 *Project Description*
@@ -65,16 +73,19 @@ ________________________________________________________________________________
 
 KMS generally follows the client-server architecture. Hence, the communication between the client and server needs some kind of standardized communication protocol. This section describes such a standard communication protocol, known as KMIP.
 2.1	About KMIP
-•	Key Management Interoperability Protocol (KMIP) is a communication protocol between key management systems and encryption systems. KMIP defines the communication between a Key Lifecycle Management System (KLMS) and its clients.
+	Key Management Interoperability Protocol (KMIP) is a communication protocol between key management systems and encryption systems. KMIP defines the communication between a Key Lifecycle Management System (KLMS) and its clients.
 
-•	KMIP supports legacy and new cryptographic-enabled applications. It supports symmetric keys, asymmetric keys, digital certificates, opaque objects and other "shared secrets." 
+	KMIP supports legacy and new cryptographic-enabled applications. It supports symmetric keys, asymmetric keys, digital certificates, opaque objects and other "shared secrets." 
 
-•	The major operations supported by KMIPv1.0 are as follows:
-	Create - creates a new symmetric key, and return the unique identifier.
-	Create Key Pair - creates new asymmetric keys, and return the unique identifier.
-	Get - Retrieves an object's value with respect to its unique identifier.
-	Register - Stores externally generated key value, and return the unique identifier.
-	Add Attributes, Get Attributes, and Modify Attributes - Manipulates the attributes of a managed object, and return the unique identifier.
-	Locate - Retrieves a list of objects based on a conjunction of predicates.
-	Re-Key - Creates a new key that can replace an existing key.
-	(Re-)Certify - certifies a certificate.
+	The major operations supported by KMIPv1.0 are as follows:
+	
+		Create - creates a new symmetric key, and return the unique identifier.
+		Create Key Pair - creates new asymmetric keys, and return the unique identifier.
+		Get - Retrieves an object's value with respect to its unique identifier.
+		Register - Stores externally generated key value, and return the unique identifier.
+		Add Attributes - Manipulates the attributes of a managed object, and return the unique identifier.
+		Get Attributes- Manipulates the attributes of a managed object, and returns the unique identifier.
+		Modify Attributes - Manipulates the attributes of a managed object, and returns the unique identifier.
+		Locate - Retrieves a list of objects based on a conjunction of predicates.
+		Re-Key - Creates a new key that can replace an existing key.
+		(Re-)Certify - certifies a certificate.
