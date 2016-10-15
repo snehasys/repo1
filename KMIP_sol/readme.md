@@ -1,9 +1,11 @@
-This project(KMIP_sol) is an extention of an unstable release found at https://kmip.codeplex.com/
+This project(KMIP_sol) is an extention of an unstable release found at https://kmip.codeplex.com/ .
+
 Overridden the Base Objects to suite the specs of KMIP KeyBlock as depicted in 
 http://docs.oasis-open.org/kmip/spec/v1.0/os/kmip-spec-1.0-os.html#_Toc262581157 
 
 
 *Project Description*
+
 OASIS KMIP Server - implementation of KMIP protocol that could be found here http://en.wikipedia.org/wiki/Key_Management_Interoperability_Protocol
 
 General features and architecture usage
