@@ -21,37 +21,30 @@ To make a C# project APIs callable from a C++ project we need to expose the desi
 To successfully call a C# method inside a C++ project do the following:
 
 	(1)	First expose the public methods inside public interfaces from the c# project. 
-
 	(2)	Now build the C# dll successfully. 
-
 	(3)	Goto the project’s AssemblyInfo.cs file and add the line
-		 [assembly: ComVisible(true)]
- 
+		 [assembly: ComVisible(true)] 
 	(4)	If want to create strong name for your class library go to step (a). 
 		Otherwise, jump to step (5).
-
-	     (a)	To create a strong name for your class library, type the following command at the Visual Studio .NET command prompt:
+		(a)	To create a strong name for your class library, type the following command at the Visual Studio .NET command prompt:
         		 sn.exe -k MyKeyFile.SNK
 
-	     (b)	Copy the file MyKeyFile.SNK to your C# project folder.
+		(b)	Copy the file MyKeyFile.SNK to your C# project folder.
      
-	     (c)	Add/replace these lines of code in the AssemblyInfo.cs file
-				[assembly: ComVisible(false)]
-				[assembly: AssemblyDelaySign(false)]
-				[assembly: AssemblyKeyFile("")]
+		(c)	Add/replace these lines of code in the AssemblyInfo.cs file
+					[assembly: ComVisible(false)]
+					[assembly: AssemblyDelaySign(false)]
+					[assembly: AssemblyKeyFile("")]
 			with the following:
-				[assembly: ComVisible(true)] 
-				[assembly: AssemblyDelaySign(false)] 
-				[assembly: AssemblyKeyFile("..\\..\\MyKeyFile.SNK")]
-	     (d)	Go to step (5).
+					[assembly: ComVisible(true)] 
+					[assembly: AssemblyDelaySign(false)] 
+					[assembly: AssemblyKeyFile("..\\..\\MyKeyFile.SNK")]
+		(d)	Go to step (5).
 
 	(5)	Rebuild the c# library. (suppose the generated dll name is cSharp.dll)
-
 	(6)	After creating the C# dll, we need the register assembly utility. For that, run the following command from admin console:
          	C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe cSharp.dll  /tlb:cSharp.tlb  /codebase
-
 	(7)	Then we import the generated TLB file path (cSharp.tlb) in our C++ project.
-
 	(8)	Now we can use the defined namespaces of C# module. Also we can access the public methods of C# module via interface pointers in C++ code.
 
 _____________________________________________________________________________________________________________________
