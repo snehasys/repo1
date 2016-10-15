@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A38FB316-D101-4BFA-8DBF-773F2391D917}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TSUnion.KMIP.Core</RootNamespace>
+    <AssemblyName>TSUnion.KMIP.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>%24/kmip/TSUnion.KMIP/TSUnion.KMIP.Core</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>https://tfs.codeplex.com/tfs/tfs17</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\External\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AttributeItem.cs" />
+    <Compile Include="Attributes\CommonTemplateAttribute.cs" />
+    <Compile Include="Attributes\ManagedAttribute.cs" />
+    <Compile Include="Attributes\PrivateKeyTemplateAttribute.cs" />
+    <Compile Include="Attributes\PublicKeyTemplateAttribute.cs" />
+    <Compile Include="Attributes\TemplateAttribute.cs" />
+    <Compile Include="BaseObject.cs" />
+    <Compile Include="BatchItem.cs" />
+    <Compile Include="BatchItemStructure.cs" />
+    <Compile Include="Common\MessageExtension.cs" />
+    <Compile Include="Common\ProtocolVersionStructure.cs" />
+    <Compile Include="Common\VendorExtensionType.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="ConvertationManager.cs" />
+    <Compile Include="CryptographicObjects\CertificateIdentifier.cs" />
+    <Compile Include="CryptographicObjects\CertificateIssuer.cs" />
+    <Compile Include="CryptographicObjects\CertificateSubject.cs" />
+    <Compile Include="Enumerators\DigitalSignatureAlgorithmType.cs" />
+    <Compile Include="CryptographicObjects\X509CertificateIdentifier.cs" />
+    <Compile Include="CryptographicObjects\X509CertificateIssuer.cs" />
+    <Compile Include="CryptographicObjects\X509CertificateSubject.cs" />
+    <Compile Include="DigectHelper.cs" />
+    <Compile Include="Digest.cs" />
+    <Compile Include="Enumerators\LinkObjectType.cs" />
+    <Compile Include="Enumerators\QueryFunctionType.cs" />
+    <Compile Include="Enumerators\RevocationReasonType.cs" />
+    <Compile Include="GeneralConvertationManager.cs" />
+    <Compile Include="CryptographicObjects\Certificate.cs" />
+    <Compile Include="CryptographicObjects\PrivateKey.cs" />
+    <Compile Include="CryptographicObjects\PublicKey.cs" />
+    <Compile Include="CryptographicObjects\SplitKey.cs" />
+    <Compile Include="CryptographicObjects\SymmetricKey.cs" />
+    <Compile Include="CryptographicParameters.cs" />
+    <Compile Include="CryptographicUsageMask.cs" />
+    <Compile Include="DerivationParameters.cs" />
+    <Compile Include="EncodingAttribute.cs" />
+    <Compile Include="Enumerators\BatchErrorContinuationOptionType.cs" />
+    <Compile Include="Enumerators\BlockCipherModeType.cs" />
+    <Compile Include="Enumerators\CertificateType.cs" />
+    <Compile Include="Enumerators\CurveType.cs" />
+    <Compile Include="Enumerators\DataType.cs" />
+    <Compile Include="Enumerators\DerivationMethodType.cs" />
+    <Compile Include="Enumerators\HashingAlgorithmType.cs" />
+    <Compile Include="Enumerators\KeyRoleType.cs" />
+    <Compile Include="Enumerators\NameType.cs" />
+    <Compile Include="Enumerators\ObjectType.cs" />
+    <Compile Include="Enumerators\OperationType.cs" />
+    <Compile Include="Enumerators\PaddingMethodType.cs" />
+    <Compile Include="Enumerators\ResultReasonType.cs" />
+    <Compile Include="Enumerators\ResultStatusType.cs" />
+    <Compile Include="Enumerators\KeyCompressionType.cs" />
+    <Compile Include="Common\CredentialStructure.cs" />
+    <Compile Include="Enumerators\CredentialType.cs" />
+    <Compile Include="Common\CredentialValue.cs" />
+    <Compile Include="Enumerators\KeyCryptographicAlgorithmType.cs" />
+    <Compile Include="Enumerators\SecretDataType E.cs" />
+    <Compile Include="Enumerators\SplitKeyMethodType.cs" />
+    <Compile Include="Enumerators\StorageStatusMaskType.cs" />
+    <Compile Include="Enumerators\TagType.cs" />
+    <Compile Include="Enumerators\UsageLimitsUnitType.cs" />
+    <Compile Include="Exceptions\KMIPNotFoundAttributeException.cs" />
+    <Compile Include="KeyBlockBase.cs" />
+    <Compile Include="KeyMaterials\DHPrivateKeyMaterial.cs" />
+    <Compile Include="KeyMaterials\DHPublicKeyMaterial.cs" />
+    <Compile Include="KeyMaterials\DSAPrivateKeyMaterial.cs" />
+    <Compile Include="KeyMaterials\ECDSAPrivateKeyMaterial.cs" />
+    <Compile Include="KeyMaterials\ECDSAPublicKeyMaterial.cs" />
+    <Compile Include="KeyMaterials\KeyMaterial.cs" />
+    <Compile Include="Enumerators\RecommendedCurveType.cs" />
+    <Compile Include="KeyMaterials\KeyMaterialConverter.cs" />
+    <Compile Include="KeyMaterials\RSAPrivateKeyMaterial.cs" />
+    <Compile Include="KeyMaterials\RSAPublicKeyMaterial.cs" />
+    <Compile Include="Request\RequestBatchItem.cs" />
+    <Compile Include="Request\RequestMessage.cs" />
+    <Compile Include="Request\RequestHeader.cs" />
+    <Compile Include="Request\RequestPayloadType.cs" />
+    <Compile Include="Response\ResponseBatchItem.cs" />
+    <Compile Include="Response\ResponseHeader.cs" />
+    <Compile Include="Response\ResponseMessage.cs" />
+    <Compile Include="Response\ResponsePayloadType.cs" />
+    <Compile Include="KeyBlock.cs" />
+    <Compile Include="Exceptions\KMIPNotFoundNameException.cs" />
+    <Compile Include="Enumerators\KeyFormatType.cs" />
+    <Compile Include="ManagedCryptographicObject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RevocationReason.cs" />
+    <Compile Include="SecretData.cs" />
+    <Compile Include="ManagedObjectState.cs" />
+    <Compile Include="KeyMaterials\SymmetricKeyMaterial.cs" />
+    <Compile Include="TransportObjectHelper.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
