@@ -71,21 +71,21 @@ A KMIP server stores and controls Managed Objects, Certificates, and user define
 _____________________________________________________________________________________________________________________
 *Some Extra Gyan (compressed)*
 
-KMS generally follows the client-server architecture. Hence, the communication between the client and server needs some kind of standardized communication protocol. This section describes such a standard communication protocol, known as KMIP.
-2.1	About KMIP
+	KMS generally follows the client-server architecture. Hence, the communication between the client and server needs some kind of standardized communication protocol. This section describes such a standard communication protocol, known as KMIP.
+	About KMIP
 	Key Management Interoperability Protocol (KMIP) is a communication protocol between key management systems and encryption systems. KMIP defines the communication between a Key Lifecycle Management System (KLMS) and its clients.
 
 	KMIP supports legacy and new cryptographic-enabled applications. It supports symmetric keys, asymmetric keys, digital certificates, opaque objects and other "shared secrets." 
 
 	The major operations supported by KMIPv1.0 are as follows:
 	
-		Create - creates a new symmetric key, and return the unique identifier.
-		Create Key Pair - creates new asymmetric keys, and return the unique identifier.
-		Get - Retrieves an object's value with respect to its unique identifier.
-		Register - Stores externally generated key value, and return the unique identifier.
-		Add Attributes - Manipulates the attributes of a managed object, and return the unique identifier.
-		Get Attributes- Manipulates the attributes of a managed object, and returns the unique identifier.
-		Modify Attributes - Manipulates the attributes of a managed object, and returns the unique identifier.
-		Locate - Retrieves a list of objects based on a conjunction of predicates.
-		Re-Key - Creates a new key that can replace an existing key.
-		(Re-)Certify - certifies a certificate.
+		1>Create - creates a new symmetric key, and return the unique identifier.
+		2>Create Key Pair - creates new asymmetric keys, and return the unique identifier.
+		3>Get - Retrieves an object's value with respect to its unique identifier.
+		4>Register - Stores externally generated key value, and return the unique identifier.
+		5>Add Attributes - Manipulates the attributes of a managed object, and return the unique identifier.
+		6>Get Attributes- Manipulates the attributes of a managed object, and returns the unique identifier.
+		7>Modify Attributes - Manipulates the attributes of a managed object, and returns the unique identifier.
+		8>Locate - Retrieves a list of objects based on a conjunction of predicates.
+		9>Re-Key - Creates a new key that can replace an existing key.
+		10>(Re-)Certify - certifies a certificate.
