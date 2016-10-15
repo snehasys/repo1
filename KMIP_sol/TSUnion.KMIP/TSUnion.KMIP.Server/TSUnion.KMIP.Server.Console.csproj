@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{23327940-C771-4CFA-AFE7-C0EEC4AE578F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TSUnion.KMIP.Server.Console</RootNamespace>
+    <AssemblyName>TSUnion.KMIP.Server</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>%24/kmip/TSUnion.KMIP/TSUnion.KMIP.Server</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>https://tfs.codeplex.com/tfs/tfs17</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TSUnion.KMIP.API\TSUnion.KMIP.API.csproj">
+      <Project>{c7f9ce97-6ea2-468d-b65c-fc8cbec4999e}</Project>
+      <Name>TSUnion.KMIP.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSUnion.KMIP.Communication\TSUnion.KMIP.Communication.csproj">
+      <Project>{ecb42cf5-049f-4406-88f5-9a7d3ca1ac81}</Project>
+      <Name>TSUnion.KMIP.Communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSUnion.KMIP.Core\TSUnion.KMIP.Core.csproj">
+      <Project>{a38fb316-d101-4bfa-8dbf-773f2391d917}</Project>
+      <Name>TSUnion.KMIP.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSUnion.KMIP.DAO.MSSql\TSUnion.KMIP.DAO.csproj">
+      <Project>{e3560c7c-ccaf-4bc6-a4f0-20b125ffdd16}</Project>
+      <Name>TSUnion.KMIP.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSUnion.KMIP.Operations\TSUnion.KMIP.Operations.csproj">
+      <Project>{513c99b5-571f-4140-abac-2a790087fd95}</Project>
+      <Name>TSUnion.KMIP.Operations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSUnion.KMIP.Server.Base\TSUnion.KMIP.Server.Base.csproj">
+      <Project>{b0516f02-0b2b-4d7b-873d-c5aef5f4adfb}</Project>
+      <Name>TSUnion.KMIP.Server.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
