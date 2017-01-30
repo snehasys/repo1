@@ -11,5 +11,8 @@ TODO: Yet to fix the backwash issue (when virtualHead and VirtualTail are linked
        //Guess I need to fix isFull() & open() both, when I have time.
        
        
-Assignment mentored by Professor Robert Sedgewick, Princeton University.
-Dependency: The module is dependent on the algs4.jar which can be found at http://algs4.cs.princeton.edu/code/algs4.jar
+#Dependency: 
+The module is dependent on the algs4.jar which can be found at http://algs4.cs.princeton.edu/code/algs4.jar
+#Disclaimer
+Assignment mentored by Professor Robert Sedgewick, Princeton University
+The test suit was provided, (refer percolation_test/credits )
