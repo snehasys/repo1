@@ -1,0 +1,22 @@
+Backbone Questions
+1? Hi, how are you?
+2? Well, what you are up to?
+3? What I can do for you?
+4? Are you sure? :)
+5? Hmm, I was just checking..
+6? Okay! May I ask, why did the need arise? What was your motivation? and please, no need to be too brief, You know I am logging this conversation, and I want it to be more useful for you later than now!
+7? All I am asking how positive are you about this? I mean, You really want to do this?
+8? Well, is that it? Or there are other requirements??
+9? Can't we avoid it? I don't find the purpose still so strong :( ! Convince me!
+10? Are you sure your need can't be satisfied with some other similar 'already available' thing?
+11? What if, for argument's sake, say the 'already availables' aren't 'available' anymore!! Will your purpose get defeated due to lack of competetion ? :)
+12? Very well, but how do other guys manage without having this?
+13? Can you be more specific, will it serve your individual need? Or it is meant for certain community?
+14? How it'll fulfill your primary requirements??
+15? Okay, and how it'll fulfill your other auxiliary needs?
+16? Well I think there is more to say on them, so please continue, and be more elaborative..
+17? No offense, but a little more details would be more productive. You know I am logging this conversation, and I want it to be more useful for you !
+18? Please state some strategic designer goals as a designer, professionally
+19? <-- Well Thanks for your responses :) It was a pleasure talking to you -->
+20? One last thing; Can you do me a favor?
+21? Please complete this slogan:: 

@@ -1,0 +1,109 @@
+-- =============================================
+-- Author:      S.S.
+-- Create date: 17-05-2013
+-- Description: All backend DB schemas are here
+-- =============================================
+
+CREATE DATABASE dcl;
+USE dcl;
+-- #////////////////////////////////////////
+--         ----------------<<<------<<------------------see table name and structure changes
+CREATE TABLE responses (
+ sequence INT(6) NOT NULL AUTO_INCREMENT
+ , thread_ref INT(4) 
+ , context VARCHAR(500)
+ , comment VARCHAR(500)
+ , t_stamp DATETIME
+ , qref INT(4)
+, primary key(sequence)
+, foreign key(qref) references question(ref)
+,foreign key(thread_ref) references about_threads(thread_id) );
+-- INSERT INTO responses VALUES (1,1,'This is PHPmyADMIN','commenting here',now(),'1');
+
+-- #//////////////////////////////////////////
+-- #//////////////////////////////////////////
+-- #//////////////////////////////////////////
+-- #//////////////////////////////////////////
+
+CREATE TABLE about_threads(
+	thread_id INT(4) AUTO_INCREMENT
+	,thread_name VARCHAR(60) 
+	,last_qref INT(4)
+	,primary key(thread_id) );
+-- #////////////////////////////////////////
+CREATE TABLE login_details(
+ uname VARCHAR(20) NOT NULL
+ ,pwd VARCHAR(20) NOT NULL
+ ,e_mail VARCHAR(50)
+ ,primary key(uname) );
+
+ INSERT INTO login_details VALUES('IamADMIN','deltacharlie','superuser@checklist.access' );
+-- #////////////////////////////////////////
+
+-- #////////////////////////////////////////
+
+-- #////////////////////////////////////////3
+CREATE TABLE IF NOT EXISTS `qmatrix` (
+  qblockid INT(2) AUTO_INCREMENT
+  ,nextblockpriority VARCHAR(100) 
+  ,primary key(qblockid) );
+-- #///////////////////////////////////<<------------ QUESTION
+DROP TABLE IF EXISTS `question`;
+CREATE TABLE IF NOT EXISTS `question` (
+   ref INT(4) NOT NULL AUTO_INCREMENT
+ , qblock INT(2) NOT NULL references qmatrix(qblockid)
+ , qcontext VARCHAR(400)
+ , primary key(ref) );
+
+-- #//////////////////////////////////////// More questions has been set in questions.sql. dont forget to execute that, bub!
+INSERT INTO question
+VALUES('','1','Hi, how are you?');
+-- #///////////////////////////////////////
+INSERT INTO question
+VALUES('','1','Well, what you are up to?');
+INSERT INTO question
+VALUES('','1','What I can do for you?');
+INSERT INTO question
+VALUES('','1','Are you sure? :)');
+INSERT INTO question
+VALUES('','1','Hmm, I was just checking..');
+INSERT INTO question
+VALUES('','1','Okay! May I ask, why did the need arise? What was your motivation? and please, no need to be too brief, You know I am logging this conversation, and I want it to be more useful for you later than now!');
+
+INSERT INTO question
+VALUES('','1','All I am asking how positive are you about this? I mean, You really want to do this?');
+
+INSERT INTO question
+VALUES('','1','Well, is that it? Or there are other requirements?');
+INSERT INTO question
+VALUES('','1','Can''t we avoid it? I don''t find the purpose still so strong :( ! Convince me! ');
+INSERT INTO question
+VALUES('','1','Are you sure your need can''t be satisfied with some other similar ''already available'' thing?');
+
+INSERT INTO question
+VALUES('','1','What if, for argument''s sake, say the ''already availables'' aren''t ''available'' anymore!! Will your purpose get defeated due to lack of conpetetion ? :)');
+
+INSERT INTO question
+VALUES('','1','Very well, but how do other guys manage without having this?');
+INSERT INTO question
+VALUES('','1','Can you be more specific, will it serve your individual need? Or it is meant for certain community?');
+INSERT INTO question
+VALUES('','1','How it''ll fulfill your primary requirements?');
+
+INSERT INTO question
+VALUES('','1','Okay, and how it''ll fulfill your other auxiliary needs?');
+
+INSERT INTO question
+VALUES('','1','Well I think there is more to say on them, so please continue, and be more elaborative..');
+
+INSERT INTO question
+VALUES('','1','No offense, but a little more details would be more productive. You know I am logging this conversation, and I want it to be more useful for you !');
+
+INSERT INTO question
+VALUES('','1','Please state some strategic designer goals as a designer, professionally');
+INSERT INTO question
+VALUES('','1','<-- Well Thanks for your responses :) It was a pleasure talking to you -->');
+-- #                            /*
+-- #Well I think there is more to say on them, do you not think so?
+-- #No offense, but a little more details would be more productive.
+-- #                        */
