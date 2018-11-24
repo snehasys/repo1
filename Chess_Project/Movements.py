@@ -1,5 +1,21 @@
 from Enumerators import BOARD_SIZE
+from Enumerators import CellDiagonalMovements
 import unittest
+
+def isValidCell(cell: tuple):
+    if(cell[0] in range(0,BOARD_SIZE) and
+       cell[1] in range(0,BOARD_SIZE) ) :
+         return True
+    return False
+
+def getAdjacentDiagonalCell(strategy    : CellDiagonalMovements,
+                            currentCell : tuple,
+                            count       : int):
+    if(strategy == CellDiagonalMovements.PP): return (currentCell[0] + count, currentCell[1] + count)
+    if(strategy == CellDiagonalMovements.MM): return (currentCell[0] - count, currentCell[1] - count)
+    if(strategy == CellDiagonalMovements.PM): return (currentCell[0] + count, currentCell[1] - count)
+    if(strategy == CellDiagonalMovements.MP): return (currentCell[0] - count, currentCell[1] + count)
+
 
 class MovementBehavior:
     isJumpingAllowed: bool
@@ -15,20 +31,64 @@ class AcrossMove(MovementBehavior):
     
     def getAllMoves(self, x : int, y : int):
         moveLocations : tuple = []
-        c = 0
-        while (c < BOARD_SIZE):
-            if(c != x) : moveLocations.append((c,y))
-            c += 1
+        count = 0
+        while (count < BOARD_SIZE):
+            if(count != x) : moveLocations.append((count,y))
+            count += 1
             
         d = 0
         while (d < BOARD_SIZE):
             if(d != y) : moveLocations.append((x,d))
             d += 1
-        # TODO : Improve above logic, so that less while loop requires. Hint: Maybe de/increment c&d together
+
         return moveLocations
 
-
-class TESTS(unittest.TestCase): 
+class DiagonalMove(MovementBehavior):
+    def __init__(self):
+        self.isJumpingAllowed = False
+        #super().isJumpingAllowed = False
+    
+    def getAllMoves(self, x : int, y : int):
+        moveLocations : tuple = []
+        '''
+        * There are 4 diagonal scenarios from any particular location.
+        *  namely:  ++, --, +-, -+
+        '''
+        for strategy in CellDiagonalMovements :
+            count = 1
+            while (count < BOARD_SIZE):
+                cell = getAdjacentDiagonalCell( strategy, (x,y), count) 
+                if( isValidCell(cell)) :
+                    moveLocations.append(cell)
+                else : 
+                    break
+                count += 1
+        # TODO : Improve above logic, so that it requires less while loops
+        return moveLocations            
+'''        count = 1
+        while (count < BOARD_SIZE):
+            cell = (x-count, y-count)
+            if( isValidCell(cell)) : moveLocations.append(cell)
+            else : break
+            count += 1
+            
+        count = 1
+        while (count < BOARD_SIZE):
+            cell = (x+count, y-count)
+            if( isValidCell(cell)) : moveLocations.append(cell)
+            else : break
+            count += 1
+            
+        count = 1
+        while (count < BOARD_SIZE):
+            cell = (x-count, y+count)
+            if( isValidCell(cell)) : moveLocations.append(cell)
+            else : break
+            count += 1
+'''            
+#################################################################
+#################################################################
+class UNIT_TESTS(unittest.TestCase): 
     def setUp(self):
         pass
   
@@ -40,7 +100,6 @@ class TESTS(unittest.TestCase):
         # print(actualMoves,expectedMoves)
         self.assertListEqual(expectedMoves, actualMoves, 'Assert ERROR: Unexpected Moves found!! ')
         
-
     def test_RookMovement00(self):
         rook : MovementBehavior = AcrossMove()
         self.SortThenMatchTwoList( rook.getAllMoves(0,0),
@@ -62,6 +121,17 @@ class TESTS(unittest.TestCase):
             [(0,3),(1,3),(3,3),(4,3),(5,3),(6,3),(7,3), (2,0),(2,1),(2,2),(2,4),(2,5),(2,6),(2,7)]
         )
 
+    def test_BishopMovement34(self):
+        bishop = DiagonalMove()
+        self.SortThenMatchTwoList(bishop.getAllMoves(3,5),
+            [(0,2), (1,3), (2,4), (4,6), (5,7), (2,6), (1,7), (4,4), (5,3), (6,2), (7,1)]
+        )
+
+    def test_BishopMovement00(self):
+        bishop = DiagonalMove()
+        self.SortThenMatchTwoList(bishop.getAllMoves(0,0),
+            [(2,2), (3,3), (4,4), (6,6), (5,5), (1,1), (7,7)]
+        )
 
 if __name__ == '__main__': 
     unittest.main() 

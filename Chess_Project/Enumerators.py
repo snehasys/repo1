@@ -14,6 +14,12 @@ class PieceType(enum.Enum):
 
 MovementBehavior = enum.Enum('MovementBehavior', 'AcrossMove DiagonalMove KnightMove QueenMove KingMove PawnMove' , start = 1, module=__name__)
 
+'''
+        * There are 4 diagonal scenarios from any particular location.
+        *  namely:  ++, --, +-, -+
+        '''
+CellDiagonalMovements = enum.Enum('CellDiagonalMovements', 'PP MM PM MP', start = 1 , module=__name__)
+
 ##############################################################
 def UT1():
     print(list(PlayerType))
