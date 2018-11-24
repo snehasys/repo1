@@ -1,55 +1,43 @@
 from Enumerators import BOARD_SIZE
 from Enumerators import CellDiagonalMovements
 import unittest
-
-def isValidCell(cell: tuple):
-    if(cell[0] in range(0,BOARD_SIZE) and
-       cell[1] in range(0,BOARD_SIZE) ) :
-         return True
-    return False
-
-def getAdjacentDiagonalCell(strategy    : CellDiagonalMovements,
-                            currentCell : tuple,
-                            count       : int):
-    if(strategy == CellDiagonalMovements.PP): return (currentCell[0] + count, currentCell[1] + count)
-    if(strategy == CellDiagonalMovements.MM): return (currentCell[0] - count, currentCell[1] - count)
-    if(strategy == CellDiagonalMovements.PM): return (currentCell[0] + count, currentCell[1] - count)
-    if(strategy == CellDiagonalMovements.MP): return (currentCell[0] - count, currentCell[1] + count)
+import Utils
 
 
+#################################################################
 class MovementBehavior:
     isJumpingAllowed: bool
     def __init__(self):
         isJumpingAllowed = True
     def getAllMoves(self, x : int, y : int):  #virtual
         pass
-
+#################################################################
 class AcrossMove(MovementBehavior):
     def __init__(self):
         self.isJumpingAllowed = False
         #super().isJumpingAllowed = False
     
     def getAllMoves(self, x : int, y : int):
-        moveLocations : tuple = []
+        possibleMoveLocations : tuple = []
         count = 0
         while (count < BOARD_SIZE):
-            if(count != x) : moveLocations.append((count,y))
+            if(count != x) : possibleMoveLocations.append((count,y))
             count += 1
             
         d = 0
         while (d < BOARD_SIZE):
-            if(d != y) : moveLocations.append((x,d))
+            if(d != y) : possibleMoveLocations.append((x,d))
             d += 1
 
-        return moveLocations
-
+        return possibleMoveLocations
+#################################################################
 class DiagonalMove(MovementBehavior):
     def __init__(self):
         self.isJumpingAllowed = False
         #super().isJumpingAllowed = False
     
     def getAllMoves(self, x : int, y : int):
-        moveLocations : tuple = []
+        possibleMoveLocations : tuple = []
         '''
         * There are 4 diagonal scenarios from any particular location.
         *  namely:  ++, --, +-, -+
@@ -57,36 +45,58 @@ class DiagonalMove(MovementBehavior):
         for strategy in CellDiagonalMovements :
             count = 1
             while (count < BOARD_SIZE):
-                cell = getAdjacentDiagonalCell( strategy, (x,y), count) 
-                if( isValidCell(cell)) :
-                    moveLocations.append(cell)
+                cell = Utils.getAdjacentDiagonalCell( False, strategy, (x,y), count) 
+                if( Utils.isValidCell(cell)) :
+                    possibleMoveLocations.append(cell)
                 else : 
                     break
                 count += 1
-        # TODO : Improve above logic, so that it requires less while loops
-        return moveLocations            
-'''        count = 1
-        while (count < BOARD_SIZE):
-            cell = (x-count, y-count)
-            if( isValidCell(cell)) : moveLocations.append(cell)
-            else : break
-            count += 1
-            
-        count = 1
-        while (count < BOARD_SIZE):
-            cell = (x+count, y-count)
-            if( isValidCell(cell)) : moveLocations.append(cell)
-            else : break
-            count += 1
-            
-        count = 1
-        while (count < BOARD_SIZE):
-            cell = (x-count, y+count)
-            if( isValidCell(cell)) : moveLocations.append(cell)
-            else : break
-            count += 1
-'''            
+
+        return possibleMoveLocations            
 #################################################################
+class KnightlyMove(MovementBehavior):
+    def __init__(self):
+        self.isJumpingAllowed = True
+    
+    def getAllMoves(self, x : int, y : int):
+        possibleMoveLocations : tuple = []
+        '''
+        * There are maximum 8 diagonal scenarios for all particular location.
+        *  namely:  +2+1, -2-1, +2-1, -2+1   ,  +1+2, -1-2, +1-2, -1+2
+        '''
+        for strategy in CellDiagonalMovements :
+            count = 1
+            cells = Utils.getAdjacentDiagonalCell( True, strategy, (x,y), count) 
+            if( Utils.isValidCell(cells[0])) :
+                possibleMoveLocations.append(cells[0])
+            if( Utils.isValidCell(cells[1])) :
+                possibleMoveLocations.append(cells[1])
+
+        return possibleMoveLocations 
+#################################################################
+class KingMove(MovementBehavior):
+    def __init__(self):
+        self.isJumpingAllowed = False
+    
+    def getAllMoves(self, x : int, y : int):
+        possibleMoveLocations : tuple = []
+        '''
+        * There are maximum 8 total scenarios for a King.
+        *  namely:  (-1,+1), (0,+1),  (+1,+1),  (-1,+0), (+1,+0), (-1,-1), (0,-1), (+1,-1) 
+        '''
+        cells = (
+            (x-1,y+1), (x,y+1), (x+1,y+1), (x-1,y), (x+1,y), (x-1,y-1), (x,y-1), (x+1,y-1)
+        )
+        for cell in cells :
+            if( Utils.isValidCell(cell)) :
+                possibleMoveLocations.append(cell)
+        
+        # TODO : Implement Castling between Rooks & King. Maybe this location is not the right place to implement castling. Investigate
+        return possibleMoveLocations
+#################################################################
+
+
+
 #################################################################
 class UNIT_TESTS(unittest.TestCase): 
     def setUp(self):
@@ -122,16 +132,33 @@ class UNIT_TESTS(unittest.TestCase):
         )
 
     def test_BishopMovement34(self):
-        bishop = DiagonalMove()
+        bishop : MovementBehavior  = DiagonalMove()
         self.SortThenMatchTwoList(bishop.getAllMoves(3,5),
             [(0,2), (1,3), (2,4), (4,6), (5,7), (2,6), (1,7), (4,4), (5,3), (6,2), (7,1)]
         )
-
     def test_BishopMovement00(self):
-        bishop = DiagonalMove()
+        bishop : MovementBehavior  = DiagonalMove()
         self.SortThenMatchTwoList(bishop.getAllMoves(0,0),
             [(2,2), (3,3), (4,4), (6,6), (5,5), (1,1), (7,7)]
         )
+        
+    def test_KnightlyMovement00(self):
+        knight : MovementBehavior  = KnightlyMove()
+        self.SortThenMatchTwoList(knight.getAllMoves(0,0),
+            [(2,1), (1,2)]
+        )
+    def test_KnightlyMovement32(self):
+        knight : MovementBehavior  = KnightlyMove()
+        self.SortThenMatchTwoList(knight.getAllMoves(3,2),
+            [(5,1), (4,0), (4,4), (5,3), (2,4), (1,3), (2,0), (1,1)]
+        )
+        
+    def test_KING_Movement30(self):
+        king : MovementBehavior  = KingMove()
+        self.SortThenMatchTwoList(king.getAllMoves(3,0),
+            [(2,0), (2,1), (3,1), (4,1), (4,0)]
+        )
+#################################################################
 
 if __name__ == '__main__': 
     unittest.main() 
