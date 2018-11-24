@@ -1,6 +1,7 @@
 import sys
 import pygame
-#pygame.init()
+
+pygame.init()
 
 resolution = width, height = 1024, 768 #320, 240
 speed = [2, 2]
@@ -21,15 +22,15 @@ def bounceMe(whatToBounce, howManyTimes:int):
             speed[1] = -speed[1]
 
         screen.fill(black)
-        screen.blit(ball, ballrect)
+        screen.blit(whatToBounce, ballrect)
         pygame.display.flip()
         howManyTimes -= 1
 
 
-ball = pygame.image.load(r'C:\00_GitHub\repo1\Chess_Project\images\pawn_white.jpg')
-ball2 = pygame.image.load(r'C:\00_GitHub\repo1\Chess_Project\images\w_p.png')
+#ball = pygame.image.load(r'C:\00_GitHub\repo1\Chess_Project\images\pawn_white.jpg')  # TODO : find a way to remove the path hardcoding
+knight = pygame.image.load(r'C:\\00_GitHub\\repo1\\Chess_Project\\images\\w_k.png')
 
 #bounceMe(ball, 1000)
-#bounceMe(ball2, 1000)
+bounceMe(knight, 1000)
 
 
