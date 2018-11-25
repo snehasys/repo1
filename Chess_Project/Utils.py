@@ -32,6 +32,7 @@ def getAdjacentDiagonalCell(isKnight    : bool,
       else:
         return ((currentCell[0] + 2*count, currentCell[1] - count),
                 (currentCell[0] + count, currentCell[1] - 2*count))
+                
     if(strategy == CellDiagonalMovements.MP): 
       if(not isKnight):
         return (currentCell[0] - count, currentCell[1] + count)
