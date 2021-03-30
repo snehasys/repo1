@@ -1,0 +1,102 @@
+
+ The original Price received from DMA : 
+ {Id:106,	CcyPair:EUR/USD,	Bid:1.1,	Ask:1.2,	TimeStamp:2020-06-01T12:01:01.001} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000000106,	CcyPair:EUR/USD,	Bid:1.09989,	Ask:1.2001199999999999,	TimeStamp:2020-06-01T12:01:01.001} 
+
+ The original Price received from DMA : 
+ {Id:107,	CcyPair:EUR/JPY,	Bid:119.6,	Ask:119.9,	TimeStamp:2020-06-01T12:01:02.002} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000000107,	CcyPair:EUR/JPY,	Bid:119.58803999999999,	Ask:119.91199,	TimeStamp:2020-06-01T12:01:02.002} 
+
+ The original Price received from DMA : 
+ {Id:108,	CcyPair:GBP/USD,	Bid:1.25,	Ask:1.256,	TimeStamp:2020-06-01T12:01:02.002} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000000108,	CcyPair:GBP/USD,	Bid:1.249875,	Ask:1.2561256,	TimeStamp:2020-06-01T12:01:02.002} 
+
+ The original Price received from DMA : 
+ {Id:109,	CcyPair:GBP/USD,	Bid:1.2499,	Ask:1.2561,	TimeStamp:2020-06-01T12:01:02.100} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000000109,	CcyPair:GBP/USD,	Bid:1.24977501,	Ask:1.25622561,	TimeStamp:2020-06-01T12:01:02.100} 
+
+ The original Price received from DMA : 
+ {Id:110,	CcyPair:EUR/JPY,	Bid:119.61,	Ask:119.91,	TimeStamp:2020-06-01T12:01:02.110} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000000110,	CcyPair:EUR/JPY,	Bid:119.598039,	Ask:119.92199099999999,	TimeStamp:2020-06-01T12:01:02.110} 
+
+ The original Price received from DMA : 
+ {Id:1100,	CcyPair:GBP/USD,	Bid:1.25,	Ask:1.256,	TimeStamp:2020-09-21T11:59:56.243} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001100,	CcyPair:GBP/USD,	Bid:1.249875,	Ask:1.2561256,	TimeStamp:2020-09-21T11:59:56.243} 
+
+ The original Price received from DMA : 
+ {Id:1101,	CcyPair:GBP/USD,	Bid:1.2499,	Ask:1.2561,	TimeStamp:2020-09-21T11:59:58.770} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001101,	CcyPair:GBP/USD,	Bid:1.24977501,	Ask:1.25622561,	TimeStamp:2020-09-21T11:59:58.770} 
+
+ The original Price received from DMA : 
+ {Id:1102,	CcyPair:GBP/USD,	Bid:1.25,	Ask:1.256,	TimeStamp:2020-09-21T12:00:00.002} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001102,	CcyPair:GBP/USD,	Bid:1.249875,	Ask:1.2561256,	TimeStamp:2020-09-21T12:00:00.002} 
+
+ The original Price received from DMA : 
+ {Id:1103,	CcyPair:GBP/USD,	Bid:1.2499,	Ask:1.2561,	TimeStamp:2020-09-21T12:00:00.100} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001103,	CcyPair:GBP/USD,	Bid:1.24977501,	Ask:1.25622561,	TimeStamp:2020-09-21T12:00:00.100} 
+
+ The original Price received from DMA : 
+ {Id:1104,	CcyPair:GBP/USD,	Bid:1.25,	Ask:1.256,	TimeStamp:2020-09-21T12:01:00.002} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001104,	CcyPair:GBP/USD,	Bid:1.249875,	Ask:1.2561256,	TimeStamp:2020-09-21T12:01:00.002} 
+
+ The original Price received from DMA : 
+ {Id:1105,	CcyPair:GBP/USD,	Bid:1.2499,	Ask:1.2561,	TimeStamp:2020-09-21T12:01:00.100} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001105,	CcyPair:GBP/USD,	Bid:1.24977501,	Ask:1.25622561,	TimeStamp:2020-09-21T12:01:00.100} 
+
+ The original Price received from DMA : 
+ {Id:1106,	CcyPair:EUR/USD,	Bid:1.1,	Ask:1.2,	TimeStamp:2020-09-21T12:01:01.001} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001106,	CcyPair:EUR/USD,	Bid:1.09989,	Ask:1.2001199999999999,	TimeStamp:2020-09-21T12:01:01.001} 
+
+ The original Price received from DMA : 
+ {Id:1107,	CcyPair:EUR/JPY,	Bid:119.6,	Ask:119.9,	TimeStamp:2020-09-21T12:01:02.002} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001107,	CcyPair:EUR/JPY,	Bid:119.58803999999999,	Ask:119.91199,	TimeStamp:2020-09-21T12:01:02.002} 
+
+ The original Price received from DMA : 
+ {Id:1108,	CcyPair:GBP/USD,	Bid:1.25,	Ask:1.256,	TimeStamp:2020-09-21T12:01:02.002} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001108,	CcyPair:GBP/USD,	Bid:1.249875,	Ask:1.2561256,	TimeStamp:2020-09-21T12:01:02.002} 
+
+ The original Price received from DMA : 
+ {Id:1109,	CcyPair:GBP/USD,	Bid:1.2499,	Ask:1.2561,	TimeStamp:2020-09-21T12:01:02.100} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001109,	CcyPair:GBP/USD,	Bid:1.24977501,	Ask:1.25622561,	TimeStamp:2020-09-21T12:01:02.100} 
+
+ The original Price received from DMA : 
+ {Id:1110,	CcyPair:EUR/JPY,	Bid:119.61,	Ask:119.91,	TimeStamp:2020-09-21T12:01:02.110} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001110,	CcyPair:EUR/JPY,	Bid:119.598039,	Ask:119.92199099999999,	TimeStamp:2020-09-21T12:01:02.110} 
+
+ The original Price received from DMA : 
+ {Id:1111,	CcyPair:GBP/USD,	Bid:1.25,	Ask:1.256,	TimeStamp:2020-09-21T12:01:02.112} 
+
+ Received new marginUpdate, replacing old one for same ccyPair -> 
+ {Id:1000001111,	CcyPair:GBP/USD,	Bid:1.249875,	Ask:1.2561256,	TimeStamp:2020-09-21T12:01:02.112} 
