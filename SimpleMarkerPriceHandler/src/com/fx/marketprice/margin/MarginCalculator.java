@@ -40,8 +40,7 @@ public class MarginCalculator {
         }
 	}
 
-	public static final Price getMarginedPrice (final String ccyPair)
-	{
+	public static final Price getMarginedPrice (final String ccyPair){
         var stamp = lock.readLock();
         try {
             return ccypairPrices.get(ccyPair);

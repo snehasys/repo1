@@ -4,6 +4,7 @@
 package com.fx.marketprice.main;
 
 import com.fx.marketprice.feed.MockFxPriceFeed;
+import com.fx.marketprice.margin.MarginCalculator;
 import com.fx.marketprice.pubsubplatform.TinyPubSubContentServer;
 import com.fx.marketprice.sub.FeedSubscriber;
 import com.fx.marketprice.sub.MarginSubscriber;
@@ -33,8 +34,13 @@ public class TestMainFlow {
         // this is just an example, it is extensible to more topics
         // maybe for each ccyPiar we may want to have different topics, 
         // such that, clients interested to particular ccyPair can only listen to ccyPairs they're interested
-
-        new MockFxPriceFeed(feederTopic);		
+        new MockFxPriceFeed(feederTopic);
+    	System.out.println("\n*******************************************"
+    			+ "\n\tCURRENT SNAPSHOT (post margin)"
+    			+ "\n*******************************************");
+        System.out.println(MarginCalculator.getMarginedPrice("EUR/USD").toJson());
+        System.out.println(MarginCalculator.getMarginedPrice("GBP/USD").toJson());
+        System.out.println(MarginCalculator.getMarginedPrice("EUR/JPY").toJson());
 
 	}
 

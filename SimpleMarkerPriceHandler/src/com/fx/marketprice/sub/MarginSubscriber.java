@@ -23,7 +23,8 @@ public class MarginSubscriber implements ISubscriber {
 	public void onMessageUpdateCallback(final String topic, final String marginUpdate) {
 		if (!topic.equalsIgnoreCase(myTopic))
 			return;
-		System.out.println("\n Received new marginUpdate, replacing old one for same ccyPair -> \n" + marginUpdate); // just displaying the received message in standard console for now
+		// got a new marginUpdate
+		// System.out.println("\n Received new marginUpdate, replacing old one for same ccyPair -> \n" + marginUpdate); // just displaying the received message in standard console for now
 	}
 
 
