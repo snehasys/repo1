@@ -25,21 +25,24 @@ ______________________________________
 ______________________________________
     SAMPLE OUTPUT
 --------------------------------------
+     .
+     .
+     .
+      The original Price received from DMA : 
+     {Id:1110,  CcyPair:EUR/JPY,    Bid:119.61, Ask:119.91, TimeStamp:2020-09-21T12:01:02.110} 
+    
      The original Price received from DMA : 
-     {Id:106,   CcyPair:EUR/USD,    Bid:1.1,    Ask:1.2,    TimeStamp:2020-06-01T12:01:01.001} 
+     {Id:1111,  CcyPair:GBP/USD,    Bid:1.25,   Ask:1.256,  TimeStamp:2020-09-21T12:01:02.112} 
     
-     Received new marginUpdate, replacing old one for same ccyPair -> 
-     {Id:1000000106,    CcyPair:EUR/USD,    Bid:1.09989,    Ask:1.2001199999999999, TimeStamp:2020-06-01T12:01:01.001} 
-    
-     The original Price received from DMA : 
-     {Id:107,   CcyPair:EUR/JPY,    Bid:119.6,  Ask:119.9,  TimeStamp:2020-06-01T12:01:02.002} 
-    
-     Received new marginUpdate, replacing old one for same ccyPair -> 
-     {Id:1000000107,    CcyPair:EUR/JPY,    Bid:119.58803999999999, Ask:119.91199,  TimeStamp:2020-06-01T12:01:02.002} 
-
-
-______________________________________
+    *******************************************
+        CURRENT SNAPSHOT (post margin)
+    *******************************************
+     {Id:1000001106,    CcyPair:EUR/USD,    Bid:1.09989,    Ask:1.2001199999999999, TimeStamp:2020-09-21T12:01:01.001} 
+     {Id:1000001111,    CcyPair:GBP/USD,    Bid:1.249875,   Ask:1.2561256,  TimeStamp:2020-09-21T12:01:02.112} 
+     {Id:1000001110,    CcyPair:EUR/JPY,    Bid:119.598039, Ask:119.92199099999999, TimeStamp:2020-09-21T12:01:02.110} 
+     
+    ______________________________________
     FULL CONSOLE OUTPUT
---------------------------------------
-Please see this file ./nohupOutput.txt
-Thank you..
+    --------------------------------------
+    Please see this file ./nohupOutput.txt
+    Thank you..
