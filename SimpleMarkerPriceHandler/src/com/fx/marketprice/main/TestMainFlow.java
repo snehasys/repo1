@@ -30,7 +30,7 @@ public class TestMainFlow {
 		final String marginGetterTopic = "Marketprice/Margin";
         TinyPubSubContentServer.getInstance().registerSubscriber(new FeedSubscriber(), feederTopic);
         TinyPubSubContentServer.getInstance().registerSubscriber(new MarginSubscriber(), marginGetterTopic);
-        // this is just a example, it is extensible to more topics
+        // this is just an example, it is extensible to more topics
         // maybe for each ccyPiar we may want to have different topics, 
         // such that, clients interested to particular ccyPair can only listen to ccyPairs they're interested
 
