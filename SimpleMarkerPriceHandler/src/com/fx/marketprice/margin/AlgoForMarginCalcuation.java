@@ -17,7 +17,7 @@ public class AlgoForMarginCalcuation {
 	}
 	
 	// we may persist the prices flowing in an async db for auditing (eg. Mifid / Dodd-frank)
-	public final Price calculate(final Price sourcePrice) {
+	public static final Price calculate(final Price sourcePrice) {
 		var calculatedPrice = sourcePrice;
 		calculatedPrice.id += 1000000000; // to keep separate id sets for feeds and after adding commissions 
 		calculatedPrice.bid += sourcePrice.bid * bidCommission;

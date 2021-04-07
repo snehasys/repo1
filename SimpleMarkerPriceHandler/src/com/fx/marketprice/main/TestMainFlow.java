@@ -19,23 +19,29 @@ public class TestMainFlow {
 	 * 
 	 */
 	public TestMainFlow() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		///////////////////////////////////////////////////////////////////////////////////////////////////////
+		//		server code
+		///////////////////////////////////////////////////////////////////////////////////////////////////////
 		final String feederTopic = "Marketprice/Feed";
 		final String marginGetterTopic = "Marketprice/Margin";
-        TinyPubSubContentServer.getInstance().registerSubscriber(new FeedSubscriber(), feederTopic);
-        TinyPubSubContentServer.getInstance().registerSubscriber(new MarginSubscriber(), marginGetterTopic);
+        TinyPubSubContentServer.getInstance().registerSubscriber(new FeedSubscriber(), feederTopic); // reads csv
+        TinyPubSubContentServer.getInstance().registerSubscriber(new MarginSubscriber(), marginGetterTopic); // client price 
         // this is just an example, it is extensible to more topics
-        // maybe for each ccyPiar we may want to have different topics, 
+        // maybe for each ccyPair we may want to have different topics, 
         // such that, clients interested to particular ccyPair can only listen to ccyPairs they're interested
-        new MockFxPriceFeed(feederTopic);
-    	System.out.println("\n*******************************************"
+        new MockFxPriceFeed(feederTopic); 
+
+		///////////////////////////////////////////////////////////////////////////////////////////////////////
+		//        client code
+		///////////////////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("\n*******************************************"
     			+ "\n\tCURRENT SNAPSHOT (post margin)"
     			+ "\n*******************************************");
         System.out.println(MarginCalculator.getMarginedPrice("EUR/USD").toJson());
@@ -43,5 +49,4 @@ public class TestMainFlow {
         System.out.println(MarginCalculator.getMarginedPrice("EUR/JPY").toJson());
 
 	}
-
 }
