@@ -17,9 +17,9 @@
  *
  * This 'wordcount' takes either one or two arguments:
  *
- *  $ wordcount.out < inputfile [<n>]
+ *  $ wordcount.out < testdata.txt [<n>]
  *
- * ... where 'inputfile' is the file to read and count words
+ * ... where 'testdata.txt' is the file to read and count words
  * from, and 'n' (optional) is the number of words to output.
  *
  * Compile with: g++ -o wordcount.out wordcount.cpp */
@@ -27,6 +27,7 @@
 #define MAXWORDSIZE 128
 #define MAXMAPSIZE 10000
 
+constexpr bool isDebugMode = true;
 /* We'll use an array of wordcount structs to store our
  * running data.  The array will be terminated by an 'empty'
  * record, ie word[0] = 0; count = 0; */
@@ -43,7 +44,7 @@ int uniqueWords = 0;
 unsigned int hashFunc(const char* word){
    unsigned int hashVal = 0;
    for (int i=0; i < strlen(word); ++i){
-      hashVal += i * i + word[i] * word[i]; // i^2 + c^2 // skip hash 
+      hashVal += i * i + word[i] * word[i]; // i^2 + c^2 // alternatively can use skip hash 
    }
 
    return hashVal % MAXMAPSIZE; // the bucket id
@@ -62,26 +63,29 @@ void addWord(const char *word )
    auto hf = hashFunc(word);
    if ( 0 == hashTable[hf] ) // unique word found
    {
+	  if (isDebugMode) std::cout << "DEBUG :: Unique word found" << std::endl;
       uniqueWords++;
       hashTable[hf] = new struct wordcount;
       strcpy(hashTable[hf]->word, word);
       hashTable[hf]->count = 1;
       hashTable[hf]->next = NULL;
    }
-   else // hash collition may or happened
+   else // hash collision may or may not happened
    {
       auto ptr = hashTable[hf];
       auto lastPtr = ptr;
       while( ptr != NULL){
-         if (strcmp(ptr->word, word) == 0) // location found
+         if (strcmp(ptr->word, word) == 0) // collision free location found
          {
+			if (isDebugMode) std::cout << "DEBUG :: collision free location found" <<std::endl;
             ptr->count++;
             return;
          }
-         lastPtr = ptr;
-         ptr = ptr->next;
+		if (isDebugMode) std::cout << "DEBUG :: OOPS! Collision happened ! " <<std::endl;
+        lastPtr = ptr;
+        ptr = ptr->next;
       }
-      // insert newly collided item at the end of the list
+      if (isDebugMode) std::cout <<  "DEBUG :: insert newly collided item at the end of the list" << std::endl;
       uniqueWords++;
       lastPtr->next = new struct wordcount; // (struct wordcount*) realloc(words, sizeof(*words)*(hf+2));
       strcpy(lastPtr->next->word, word);
